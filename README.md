@@ -12,7 +12,7 @@ Sebagai Data Engineer, ada beberapa task yang perlu anda lakukan yaitu :
     dari kolom FirstName dan LastName menjadi huruf capital semua, lalu gabungkan kedua kolom
     tersebut menjadi satu kolom yang bernama CustomerName.
 4. Membuat Store Procedure (SP) untuk menampilkan summary sales order berdasarkan status 
-    pengiriman. 
+    pengiriman.
 
 ## Hasil 1 & 2 Melakukan Import Database Staging, dan membuat database DWH_Project dan Tabel Fact dan Dimension 
 1. Import database staging melalui file staging.bak pada menu SSMS 
