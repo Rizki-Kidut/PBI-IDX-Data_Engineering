@@ -95,7 +95,26 @@ Sebagai Data Engineer, ada beberapa task yang perlu anda lakukan yaitu :
 
 ## Hasil 4
 1. Membuat stored procedure untuk menampilkan summary sales order berdasarkan status order pada SSMS. Untuk membuat syntax lebih clean, diterapkan pula alias pada table.
-[Syntax Stored Procedure](https://github.com/Rizki-Kidut/PBI-IDX-Data_Engineering/blob/99ea671604b7b8a0e49453c00242a26ab27aa9d2/Create%20Store%20Procedure.sql)
+Syntax Stored Procedure:
+```
+CREATE PROCEDURE dbo.summary_order_status
+@StatusID int AS BEGIN
+SELECT 
+f.OrderID, 
+c.CustomerName, 
+p.ProductName,
+f.Quantity,
+s.StatusOrder,
+s.StatusOrderDesc
+FROM
+dbo.FactSalesOrder AS f
+JOIN DimCustomer AS c ON  f.CustomerID = c.CustomerID
+JOIN DimProduct AS p ON f.ProductID = p.ProductID
+JOIN DimStatusOrder AS s ON f.StatusID = s.StatusID
+WHERE s.StatusID = @StatusID;
+END
+```
+
 2. Mengeksekusi stored procedure dengan dua nilai (StatusID = 3 & 2).
    
 ![Eksekusi Stored Procedure StatusID = 3](https://github.com/Rizki-Kidut/PBI-IDX-Data_Engineering/blob/99ea671604b7b8a0e49453c00242a26ab27aa9d2/Stored%20Procedure%20Status%20ID%3D3.png)
