@@ -19,12 +19,61 @@ Sebagai Data Engineer, ada beberapa task yang perlu anda lakukan yaitu :
 
 
 2. Membuat database DWH_Project sebagai database tujuan & Membuat tabel DimCustomer, DimProduct, DimStatusOrder, dan FactSalesOrder dengan menggunakan SQL Syntax
-- [Syntax Create database DWH_Project](https://github.com/Rizki-Kidut/PBI-IDX-Data_Engineering/blob/99ea671604b7b8a0e49453c00242a26ab27aa9d2/Create%20DWH_Project%20Database.sql)
-- [Syntax Create DimCustomer](https://github.com/Rizki-Kidut/PBI-IDX-Data_Engineering/blob/99ea671604b7b8a0e49453c00242a26ab27aa9d2/Create%20DimCustomer%20table.sql)
-- [Syntax Create DimProduct](https://github.com/Rizki-Kidut/PBI-IDX-Data_Engineering/blob/99ea671604b7b8a0e49453c00242a26ab27aa9d2/Create%20DimProduct%20table.sql)
-- [Syntax Create DimStatusOrder](https://github.com/Rizki-Kidut/PBI-IDX-Data_Engineering/blob/99ea671604b7b8a0e49453c00242a26ab27aa9d2/Create%20DimStatusOrder%20table.sql)
-- [Syntax Create FactSalesOrder](https://github.com/Rizki-Kidut/PBI-IDX-Data_Engineering/blob/99ea671604b7b8a0e49453c00242a26ab27aa9d2/Create%20FactSalesOrder%20table.sql)
+- Syntax Create database DWH_Project:
+  ```
+  CREATE DATABASE DWH_Project;
 
+  USE DWH_Project;
+  ```
+  
+- Syntax Create DimCustomer:
+  ```
+  CREATE TABLE DimCustomer
+  (
+	CustomerID int CONSTRAINT PK_CustomerID PRIMARY KEY ,
+	CustomerName varchar(50) NOT NULL,
+	Age int,
+	Gender varchar (50) NOT NULL,
+	City varchar (50) NOT NULL,
+	NoHp varchar (50) NOT NULL
+  );
+  ```
+  
+- Syntax Create DimProduct:
+  ```
+  CREATE TABLE DimProduct
+  (
+	ProductID int CONSTRAINT PK_ProductID PRIMARY KEY NOT NULL,
+	ProductName varchar(255) NOT NULL,
+	ProductCategory varchar (255) NOT NULL,
+	ProductUnitPrice int NOT NULL,
+  );
+  ```
+  
+- Syntax Create DimStatusOrder:
+  ```
+  CREATE TABLE DimStatusOrder
+  (
+	StatusID int CONSTRAINT PK_StatusID PRIMARY KEY,
+	StatusOrder varchar(50) NOT NULL,
+	StatusOrderDesc varchar (50) NOT NULL,
+  );
+  ```
+  
+- Syntax Create FactSalesOrder:
+  ```
+  CREATE TABLE FactSalesOrder
+  (
+	OrderID int CONSTRAINT PK_OrderID PRIMARY KEY NOT NULL,
+	CustomerID int CONSTRAINT FK_CustomerID FOREIGN KEY REFERENCES DimCustomer(CustomerID) NOT NULL,
+	ProductID int CONSTRAINT FK_ProductID FOREIGN KEY REFERENCES DimProduct(ProductID) NOT NULL,
+	Quantity int NOT NULL,
+	Amount int NOT NULL,
+	StatusID int CONSTRAINT FK_StatusID FOREIGN KEY REFERENCES DimStatusOrder(StatusID) NOT NULL,
+	OrderDate date NOT NULL
+  );
+  ```
+  
 ## Hasil 3 Membuat Job ETL pada Talend Studio
 1. Menghubungkan database Staging dan DWH_Project dengan Windows Authentication dengan menggunakan jtds-1.3.1.jar driver pada Talend Studio.
    
