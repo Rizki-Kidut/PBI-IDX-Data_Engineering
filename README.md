@@ -28,9 +28,9 @@ Sebagai Data Engineer, ada beberapa task yang perlu anda lakukan yaitu :
 ## Hasil 3 Membuat Job ETL pada Talend Studio
 1. Menghubungkan database Staging dan DWH_Project dengan Windows Authentication dengan menggunakan jtds-1.3.1.jar driver pada Talend Studio.
    
-![Koneksi Database Staging via JTDS] Koneksi Database Staging via JTDS (https://github.com/Rizki-Kidut/PBI-IDX-Data_Engineering/blob/99ea671604b7b8a0e49453c00242a26ab27aa9d2/Create%20Connection%20to%20DB%20in%20metadata%20Staging%20DB.png)
+![Koneksi Database Staging via JTDS](https://github.com/Rizki-Kidut/PBI-IDX-Data_Engineering/blob/99ea671604b7b8a0e49453c00242a26ab27aa9d2/Create%20Connection%20to%20DB%20in%20metadata%20Staging%20DB.png)
 
-![Koneksi Database DWH_Project via JTDS] Koneksi Database DWH_Project via JTDS (https://github.com/Rizki-Kidut/PBI-IDX-Data_Engineering/blob/99ea671604b7b8a0e49453c00242a26ab27aa9d2/Create%20Connection%20to%20DB%20in%20metadata%202.png)
+![Koneksi Database DWH_Project via JTDS](https://github.com/Rizki-Kidut/PBI-IDX-Data_Engineering/blob/99ea671604b7b8a0e49453c00242a26ab27aa9d2/Create%20Connection%20to%20DB%20in%20metadata%202.png)
 
 2. Melakukan retrieve schema untuk Database Staging dan DWH_Project.
    
